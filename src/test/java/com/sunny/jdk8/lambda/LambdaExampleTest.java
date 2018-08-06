@@ -51,6 +51,20 @@ public class LambdaExampleTest {
     }
 
     /**
+     * 使用匿名内部类，减少无用的类
+     */
+    @Test
+    public void filterUser4() {
+        List<User> filterUsers = filerUsersByFilter(users, new Filter<User>() {
+            @Override
+            public boolean matches(User obj) {
+                return obj.getHeight() >= 175;
+            }
+        });
+        filterUsers.forEach(System.out::println);
+    }
+
+    /**
      * 1.存在硬编码，代码不够灵活
      *
      * @param users 用户
@@ -67,7 +81,7 @@ public class LambdaExampleTest {
     }
 
     /**
-     * 2.采用策略模式优化代码
+     * 2.采用策略模式优化代码，但是需要一堆的策略
      *
      * @param users  用户
      * @param filter 过滤器
@@ -82,4 +96,6 @@ public class LambdaExampleTest {
         }
         return filterUsers;
     }
+
+
 }
