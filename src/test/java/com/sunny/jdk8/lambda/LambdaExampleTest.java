@@ -65,6 +65,15 @@ public class LambdaExampleTest {
     }
 
     /**
+     * 使用lambda优化代码
+     */
+    @Test
+    public void filterUser5() {
+        List<User> filterUsers = filerUsersByFilter(users, obj -> obj.getHeight() >= 175);
+        filterUsers.forEach(System.out::println);
+    }
+
+    /**
      * 1.存在硬编码，代码不够灵活
      *
      * @param users 用户
