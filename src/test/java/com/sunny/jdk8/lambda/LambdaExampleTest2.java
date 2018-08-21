@@ -62,4 +62,11 @@ public class LambdaExampleTest2 {
         int compare = com.compare(1, -1);
         System.out.println("compare:" + compare);
     }
+   /*参数类型可以省略不写，jvm自己推荐，但是要是写参数都必须写*/
+    @Test
+    public void test5() {
+        Comparator<Integer> com = (Integer x, Integer y) -> Integer.compare(x, y);
+        int compare = com.compare(1, -1);
+        System.out.println("compare:" + compare);
+    }
 }
