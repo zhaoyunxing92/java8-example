@@ -43,3 +43,14 @@
 
     }
 ```
+* 有两个参数，有返回值的,只有一条语句，return可以省略
+```java
+ @Test
+    public void test4() {
+        Comparator<Integer> com = (x, y) -> Integer.compare(x, y);
+        // ::语法
+        // Comparator<Integer> com = Integer::compare;
+        int compare = com.compare(1, -1);
+        System.out.println("compare:" + compare);
+    }
+```
