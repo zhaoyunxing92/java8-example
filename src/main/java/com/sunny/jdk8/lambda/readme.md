@@ -31,3 +31,15 @@
               con.accept("hello");
     }
 ```
+* 有两个参数，有返回值的
+```java
+  @Test
+    public void test3() {
+        Comparator<Integer> com = (x, y) -> {
+            return Integer.compare(x, y);
+        };
+        int compare = com.compare(1, -1);
+        System.out.println("compare:" + compare);
+
+    }
+```

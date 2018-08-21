@@ -5,6 +5,7 @@ package com.sunny.jdk8.lambda;
 
 import org.junit.Test;
 
+import java.util.Comparator;
 import java.util.function.Consumer;
 
 /**
@@ -38,5 +39,16 @@ public class LambdaExampleTest2 {
         // 只有一个情况下参数小括号可以省略
         // Consumer<String> con2 = x -> System.out.println(x);
         con.accept("hello");
+    }
+
+    /*有两个参数，有返回值的*/
+    @Test
+    public void test3() {
+        Comparator<Integer> com = (x, y) -> {
+            return Integer.compare(x, y);
+        };
+        int compare = com.compare(1, -1);
+        System.out.println("compare:" + compare);
+
     }
 }
