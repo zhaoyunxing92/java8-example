@@ -25,7 +25,9 @@
 ```java
   @Test
     public void test2() {
-        Consumer<String> con = (x) -> System.out.println(x);
-        con.accept("hello");
+              Consumer<String> con = (x) -> System.out.println(x);
+              // 只有一个情况下参数小括号可以省略
+              // Consumer<String> con2 = x -> System.out.println(x);
+              con.accept("hello");
     }
 ```
