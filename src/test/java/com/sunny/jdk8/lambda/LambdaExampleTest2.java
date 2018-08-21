@@ -5,6 +5,8 @@ package com.sunny.jdk8.lambda;
 
 import org.junit.Test;
 
+import java.util.function.Consumer;
+
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.lambda.LambdaExampleTest2
@@ -27,5 +29,12 @@ public class LambdaExampleTest2 {
         System.out.println("---------------------------------");
         Runnable r = () -> System.out.println("hello test1-1");
         r.run();
+    }
+
+    /*有参数，无返回值*/
+    @Test
+    public void test2() {
+        Consumer<String> con = (x) -> System.out.println(x);
+        con.accept("hello");
     }
 }

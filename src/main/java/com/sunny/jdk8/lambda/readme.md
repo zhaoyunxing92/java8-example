@@ -21,3 +21,11 @@
         r.run();
     }
 ```
+* 有参数，无返回值
+```java
+  @Test
+    public void test2() {
+        Consumer<String> con = (x) -> System.out.println(x);
+        con.accept("hello");
+    }
+```
