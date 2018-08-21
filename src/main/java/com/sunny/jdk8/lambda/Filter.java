@@ -9,6 +9,7 @@ package com.sunny.jdk8.lambda;
  * @date: 2018-08-06 16:31
  * @des:
  */
+@FunctionalInterface
 public interface Filter<T> {
     /**
      * 对对象操作
