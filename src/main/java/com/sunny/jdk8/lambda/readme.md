@@ -1,5 +1,5 @@
 # Lambda 基础语法
-> [代码](src/test/java/com/sunny/jdk8/lambda/LambdaExampleTest2.java)
+> [代码](https://github.com/zhaoyunxing92/java8-example/blob/master/src/test/java/com/sunny/jdk8/lambda/LambdaExampleTest2.java)
 ## 规则
 左侧：参数列表
 右侧：函数体。
