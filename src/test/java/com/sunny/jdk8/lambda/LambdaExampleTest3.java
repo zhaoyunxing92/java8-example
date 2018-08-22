@@ -31,7 +31,7 @@ public class LambdaExampleTest3 {
      */
     @Test
     public void test1() {
-        pay(100.2, (x) -> System.out.println("今天收益" + x + "元"));
+        pay(100.2, (x) -> System.out.println("今天支出" + x + "元"));
     }
 
     private void pay(Double money, Consumer<Double> con) {
