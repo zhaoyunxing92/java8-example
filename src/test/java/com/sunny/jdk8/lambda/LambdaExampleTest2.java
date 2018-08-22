@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * @author zhaoyunxing92
@@ -35,7 +37,7 @@ public class LambdaExampleTest2 {
     /*有参数，无返回值*/
     @Test
     public void test2() {
-        Consumer<String> con = (x) -> System.out.println(x);
+        Consumer<String> con = System.out::println;
         // 只有一个情况下参数小括号可以省略
         // Consumer<String> con2 = x -> System.out.println(x);
         con.accept("hello");
@@ -62,7 +64,8 @@ public class LambdaExampleTest2 {
         int compare = com.compare(1, -1);
         System.out.println("compare:" + compare);
     }
-   /*参数类型可以省略不写，jvm自己推荐，但是要是写参数都必须写*/
+
+    /*参数类型可以省略不写，jvm自己推荐，但是要是写参数都必须写*/
     @Test
     public void test5() {
         Comparator<Integer> com = (Integer x, Integer y) -> Integer.compare(x, y);

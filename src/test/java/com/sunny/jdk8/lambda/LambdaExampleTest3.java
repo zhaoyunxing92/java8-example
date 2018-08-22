@@ -5,8 +5,14 @@ package com.sunny.jdk8.lambda;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * @author zhaoyunxing92
@@ -32,23 +38,61 @@ public class LambdaExampleTest3 {
         con.accept(money);
     }
 
+    /**
+     * Supplier<T> 供给型接口（无参有返回值）
+     */
     @Test
     public void test2() {
+        List<Integer> list = getNumList(10, () -> (int) (Math.random() * 100));
 
+        list.forEach(System.out::println);
     }
 
+    /*产生数组*/
+    private List<Integer> getNumList(Integer size, Supplier<Integer> sup) {
+        List<Integer> list = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            Integer num = sup.get();
+            list.add(num);
+        }
+        return list;
+    }
+
+    /**
+     * Function<T, R> 函数式接口
+     */
     @Test
     public void test3() {
 
+        String str = strHandler("java", (x) -> x.replace("a", "h"));
+        System.out.println(str);
     }
 
+    /*字符串处理*/
+    private String strHandler(String str, Function<String, String> fun) {
+        return fun.apply(str);
+    }
+
+    /**
+     * Predicate<T> 断言型接口
+     */
     @Test
     public void test4() {
+        List<String> strs = Arrays.asList("java", "js", "go", "sql");
 
+        List<String> strings = filterStr(strs, (str) -> str.length() > 2);
+
+        strings.forEach(System.out::println);
     }
 
-    @Test
-    public void test5() {
-
+    /*集合过滤*/
+    private List<String> filterStr(List<String> strs, Predicate<String> pre) {
+        List<String> filterStr = new ArrayList<>();
+        strs.forEach(str -> {
+            if (pre.test(str))
+                filterStr.add(str);
+        });
+        return filterStr;
     }
+
 }

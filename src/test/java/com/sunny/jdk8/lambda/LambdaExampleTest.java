@@ -3,6 +3,7 @@ package com.sunny.jdk8.lambda;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 
 /**
@@ -62,6 +63,8 @@ public class LambdaExampleTest {
             }
         });
         filterUsers.forEach(System.out::println);
+        Supplier<String> supplier = () -> "java";
+        supplier.get();
     }
 
     /**
