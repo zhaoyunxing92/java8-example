@@ -131,7 +131,7 @@ supplier.get();
      */
     @Test
     public void test3() {
-
+ 
         String str = strHandler("java", (x) -> x.replace("a", "h"));
         System.out.println(str);
     }
