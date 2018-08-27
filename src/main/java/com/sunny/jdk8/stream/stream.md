@@ -1,4 +1,5 @@
 #Stream(流)
+[代码](https://github.com/zhaoyunxing92/java8-example/blob/master/src/test/java/com/sunny/jdk8/stream/StreamApiTest.java)
 ## 创建流
 * 使用 collection（集合）提供的方法stream()或parallelStream()
  ```java
