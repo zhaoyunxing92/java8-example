@@ -56,7 +56,7 @@
     }
 ```
 ## 映射
-* map 接受一个函数，该函数会映射到每个元素上
+* map 接收一个函数，该函数会映射到每个元素上
 ```java
        @Test
        public void test6() {
@@ -87,7 +87,7 @@
            return list.stream();
        }
 ```
-* flatMap 接受一个函数，将值转换为流，合成一个流
+* flatMap 接收一个函数，将值转换为流，合成一个流
 ```java
         list.stream()
                 .flatMap(StreamApiTest::filterCharacter)
