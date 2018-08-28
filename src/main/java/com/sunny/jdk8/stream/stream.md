@@ -87,4 +87,9 @@
            return list.stream();
        }
 ```
-* flatMap 
+* flatMap 接受一个函数，将值转换为流，合成一个流
+```java
+        list.stream()
+                .flatMap(StreamApiTest::filterCharacter)
+                .forEach(System.out::println);
+```
