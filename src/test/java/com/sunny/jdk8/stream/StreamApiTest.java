@@ -18,6 +18,7 @@ import java.util.stream.Stream;
  * @des: Stream(流)操作
  */
 public class StreamApiTest {
+
     @Test
     public void test1() {
         //1.流创建
@@ -31,5 +32,61 @@ public class StreamApiTest {
 
         //1.3 使用Stream的静态方法of()
         Stream<String> stream2 = Stream.of("a", "b", "c");
+
+        //1.4 无限流
+        Stream<Integer> stream3 = Stream.iterate(0, (x) -> x + 2);
+        stream3.limit(10).forEach(System.out::println);
+
+        //1.5 生成
+        Stream<Double> generate = Stream.generate(() -> Math.random());
+        generate.limit(5)
+                .forEach(System.out::println);
+
+    }
+
+    private List<User> users = Arrays.asList(
+            new User("小明", 21, 168),
+            new User("王五", 25, 190),
+            new User("赵六", 18, 175),
+            new User("赵六", 18, 175),
+            new User("赵六", 18, 175),
+            new User("赵六", 18, 175),
+            new User("赵六", 18, 175),
+            new User("王明", 21, 170),
+            new User("张三", 15, 180));
+
+    // filter 过滤
+    @Test
+    public void test2() {
+        users.stream()
+                .filter((e) -> e.getAge() > 20)
+                .forEach(System.out::println);
+    }
+
+    //limit
+    @Test
+    public void test3() {
+        users.stream()
+                .filter((e) -> e.getAge() > 20)
+                .limit(2)
+                .forEach(System.out::println);
+    }
+
+    //skip,让掉第n个，超过几个大小了返回空
+    @Test
+    public void test4() {
+        users.stream()
+                .filter((e) -> e.getAge() >= 18)
+                .skip(1)
+                .forEach(System.out::println);
+    }
+
+    //distinct,去除重复，根据equals和hashCode去除重复
+    @Test
+    public void test5() {
+        users.stream()
+                .filter((e) -> e.getAge() >= 18)
+                .distinct()
+                .forEach(System.out::println);
     }
 }
