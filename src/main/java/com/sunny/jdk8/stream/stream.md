@@ -15,3 +15,43 @@
 ```java
   Stream<String> stream2 = Stream.of("a", "b", "c");
 ```
+## 流的使用
+* filter 过滤
+```java
+    @Test
+    public void test2() {
+        users.stream()
+                .filter((e) -> e.getAge() > 20)
+                .forEach(System.out::println);
+    }
+```
+* limit
+```java
+    @Test
+    public void test3() {
+        users.stream()
+                .filter((e) -> e.getAge() > 20)
+                .limit(2)
+                .forEach(System.out::println);
+    }
+```
+* skip 让掉第n个，超过几个大小了返回空
+```java
+    @Test
+    public void test4() {
+        users.stream()
+                .filter((e) -> e.getAge() >= 18)
+                .skip(1)
+                .forEach(System.out::println);
+    }
+```
+* distinct 去除重复，根据equals和hashCode去除重复
+```java
+    @Test
+    public void test5() {
+        users.stream()
+                .filter((e) -> e.getAge() >= 18)
+                .distinct()
+                .forEach(System.out::println);
+    }
+```
