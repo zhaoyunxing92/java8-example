@@ -20,7 +20,6 @@ public class LambdaExampleTest {
             new User("小明", 21, 168),
             new User("王五", 25, 190),
             new User("赵六", 18, 175),
-
             new User("王明", 21, 170),
             new User("张三", 15, 180));
 
