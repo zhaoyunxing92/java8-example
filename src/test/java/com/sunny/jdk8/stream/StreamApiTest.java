@@ -95,6 +95,7 @@ public class StreamApiTest {
 
     /**
      * map 接受一个函数，该函数会映射到每个元素上
+     * flatmap：接受一个函数，将值转换为流，合成一个流
      */
     @Test
     public void test6() {
@@ -111,9 +112,17 @@ public class StreamApiTest {
                 .forEach(System.out::println);
 
         System.out.println("-----------------------------------------");
+        //map
         Stream<Stream<Character>> stream = list.stream()
                 .map(StreamApiTest::filterCharacter);
         stream.forEach((sm) -> sm.forEach(System.out::println));
+
+        System.out.println("-----------------------------------------");
+        //flatmap
+        list.stream()
+                .flatMap(StreamApiTest::filterCharacter)
+                .forEach(System.out::println);
+
     }
 
     private static Stream<Character> filterCharacter(String str) {
