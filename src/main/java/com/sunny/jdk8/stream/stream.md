@@ -55,6 +55,28 @@
                 .forEach(System.out::println);
     }
 ```
+* sorted 排序
+```java
+        @Test
+        public void test7() {
+            List<String> list = Arrays.asList("bbb", "aaa", "ccc", "ddd", "eee");
+            //默认排序
+            list.stream()
+                    .sorted()
+                    .forEach(System.out::println);
+            System.out.println("-----------------------------------------");
+            //定制排序
+            users.stream()
+                    .sorted((u1, u2) -> {
+                        if (u1.getAge() >= u2.getAge())
+                            return u1.getName().compareTo(u2.getName());
+                        else
+                            return u1.getName().compareTo(u2.getName());
+                    })
+                    .forEach(System.out::println);
+    
+        }
+```
 ## 映射
 * map 接收一个函数，该函数会映射到每个元素上
 ```java
