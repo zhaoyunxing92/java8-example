@@ -6,6 +6,7 @@ package com.sunny.jdk8.stream;
 import com.sunny.jdk8.lambda.User;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -88,5 +89,38 @@ public class StreamApiTest {
                 .filter((e) -> e.getAge() >= 18)
                 .distinct()
                 .forEach(System.out::println);
+    }
+
+    //映射
+
+    /**
+     * map 接受一个函数，该函数会映射到每个元素上
+     */
+    @Test
+    public void test6() {
+        List<String> list = Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee");
+        list.stream()
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
+
+        System.out.println("-----------------------------------------");
+        //获取集合用户名字
+        users.stream()
+                .map(User::getName)
+                //   .distinct()
+                .forEach(System.out::println);
+
+        System.out.println("-----------------------------------------");
+        Stream<Stream<Character>> stream = list.stream()
+                .map(StreamApiTest::filterCharacter);
+        stream.forEach((sm) -> sm.forEach(System.out::println));
+    }
+
+    private static Stream<Character> filterCharacter(String str) {
+        List<Character> list = new ArrayList<>();
+        for (Character ch : str.toCharArray()) {
+            list.add(ch);
+        }
+        return list.stream();
     }
 }
