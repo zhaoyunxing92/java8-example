@@ -3,156 +3,107 @@
  */
 package com.sunny.jdk8.stream;
 
+import com.sunny.jdk8.lambda.Status;
 import com.sunny.jdk8.lambda.User;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Stream;
 
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.stream.StreamApiTest
  * @date: 2018-08-24 14:03
- * @des: Stream(流)操作
+ * @des: 终止操作
  */
-public class StreamApiTest {
-
-    @Test
-    public void test1() {
-        //1.流创建
-        //1.1 使用 collection（集合）提供的方法stream()或parallelStream()
-        List<Integer> list = new ArrayList<>();
-        final Stream<Integer> stream = list.stream();
-
-        //1.2 使用Arrays.stream()
-        User[] user = new User[10];
-        final Stream<User> stream1 = Arrays.stream(user);
-
-        //1.3 使用Stream的静态方法of()
-        Stream<String> stream2 = Stream.of("a", "b", "c");
-
-        //1.4 无限流
-        Stream<Integer> stream3 = Stream.iterate(0, (x) -> x + 2);
-        stream3.limit(10).forEach(System.out::println);
-
-        //1.5 生成
-        Stream<Double> generate = Stream.generate(() -> Math.random());
-        generate.limit(5)
-                .forEach(System.out::println);
-
-    }
-
+public class StreamApiTest2 {
     private List<User> users = Arrays.asList(
-            new User("小明", 21, 168),
-            new User("王五", 25, 190),
-            new User("赵六", 18, 175),
-            new User("赵六", 18, 175),
-            new User("赵六", 18, 175),
-            new User("赵六", 18, 175),
-            new User("赵六", 18, 175),
-            new User("王明", 21, 170),
-            new User("张三", 15, 180));
-
-    // filter 过滤
-    @Test
-    public void test2() {
-        users.stream()
-                .filter((e) -> e.getAge() > 20)
-                .forEach(System.out::println);
-    }
-
-    //limit
-    @Test
-    public void test3() {
-        users.stream()
-                .filter((e) -> e.getAge() > 20)
-                .limit(2)
-                .forEach(System.out::println);
-    }
-
-    //skip,让掉第n个，超过几个大小了返回空
-    @Test
-    public void test4() {
-        users.stream()
-                .filter((e) -> e.getAge() >= 18)
-                .skip(1)
-                .forEach(System.out::println);
-    }
-
-    //distinct,去除重复，根据equals和hashCode去除重复
-    @Test
-    public void test5() {
-        users.stream()
-                .filter((e) -> e.getAge() >= 18)
-                .distinct()
-                .forEach(System.out::println);
-    }
-
-    //映射
+            new User("小明", 21, 168, Status.QUIT),
+            new User("王五", 25, 190, Status.GRADUATE),
+            new User("赵六", 18, 175, Status.STUDENT),
+            new User("王明", 28, 170, Status.QUIT),
+            new User("张三", 15, 180, Status.STUDENT));
 
     /**
-     * map 接受一个函数，该函数会映射到每个元素上
-     * flatmap：接受一个函数，将值转换为流，合成一个流
+     * allMatch 是否匹配全部
+     * anyMatch 是否匹配一个
+     * noneMatch 没有匹配一个
+     */
+    @Test
+    public void test1() {
+        boolean b1 = users.stream()
+                .allMatch(e -> e.getStatus().equals(Status.QUIT));
+        System.out.println(b1);
+
+        boolean b2 = users.stream()
+                .anyMatch(e -> e.getStatus().equals(Status.QUIT));
+        System.out.println(b2);
+
+        boolean b3 = users.stream()
+                .noneMatch(e -> e.getStatus().equals(Status.QUIT));
+        System.out.println(b3);
+    }
+
+    /**
+     * findFirst 获取第一个元素，年龄最大的
+     */
+    @Test
+    public void test2() {
+        Optional<User> op = users.stream()
+                .sorted((u1, u2) -> -Integer.compare(u1.getAge(), u2.getAge()))
+                .findFirst();
+        System.out.println(op.get());
+    }
+
+    /**
+     * findAny 获取任意一个匹配的
+     */
+    @Test
+    public void test3() {
+        Optional<User> op = users.stream()
+                .filter(u -> u.getStatus().equals(Status.QUIT))
+                .findAny();
+        System.out.println(op.get());
+    }
+
+    /**
+     * count
+     */
+    @Test
+    public void test4() {
+        long count = users.stream()
+                .count();
+        System.out.println(count);
+    }
+
+    /**
+     * max min年龄最大的
+     */
+    @Test
+    public void test5() {
+        Optional<User> op = users.stream()
+                .max(Comparator.comparingInt(User::getAge));
+        System.out.println(op.get());
+
+        Optional<User> op2 = users.stream()
+                .min(Comparator.comparingInt(User::getAge));
+        System.out.println(op2.get());
+    }
+
+    /**
+     * 归约，一个值反复结合，合并成一个
      */
     @Test
     public void test6() {
-        List<String> list = Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee");
-        list.stream()
-                .map(String::toUpperCase)
-                .forEach(System.out::println);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Integer reduce = list.stream().reduce(0, (x, y) -> x + y);
+        System.out.println(reduce);
+        System.out.println("------------------------------");
+        //获取年龄合
+        Optional<Integer> sumAge = users.stream()
+                .map(User::getAge)
+                .reduce(Integer::sum);
+        System.out.println(sumAge.get());
 
-        System.out.println("-----------------------------------------");
-        //获取集合用户名字
-        users.stream()
-                .map(User::getName)
-                //   .distinct()
-                .forEach(System.out::println);
-
-        System.out.println("-----------------------------------------");
-        //map
-        Stream<Stream<Character>> stream = list.stream()
-                .map(StreamApiTest::filterCharacter);
-        stream.forEach((sm) -> sm.forEach(System.out::println));
-
-        System.out.println("-----------------------------------------");
-        //flatmap
-        list.stream()
-                .flatMap(StreamApiTest::filterCharacter)
-                .forEach(System.out::println);
-
-    }
-
-    /**
-     * 排序:sorted
-     */
-    @Test
-    public void test7() {
-        List<String> list = Arrays.asList("bbb", "aaa", "ccc", "ddd", "eee");
-        //默认排序
-        list.stream()
-                .sorted()
-                .forEach(System.out::println);
-        System.out.println("-----------------------------------------");
-        //定制排序
-        users.stream()
-                .sorted((u1, u2) -> {
-                    if (u1.getAge() >= u2.getAge())
-                        return u1.getName().compareTo(u2.getName());
-                    else
-                        return u1.getName().compareTo(u2.getName());
-                })
-                .forEach(System.out::println);
-
-    }
-
-    private static Stream<Character> filterCharacter(String str) {
-        List<Character> list = new ArrayList<>();
-        for (Character ch : str.toCharArray()) {
-            list.add(ch);
-        }
-        return list.stream();
     }
 }
