@@ -27,12 +27,6 @@ public class User {
      */
     private Status status;
 
-    private enum Status {
-        STUDENT,//在校
-        GRADUATE,//毕业
-        QUIT;//休学
-    }
-
     public User(String name, int age, int height) {
         this.name = name;
         this.age = age;
