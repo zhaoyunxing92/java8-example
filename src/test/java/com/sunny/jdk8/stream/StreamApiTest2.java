@@ -122,5 +122,13 @@ public class StreamApiTest2 {
                 .map(User::getName)
                 .collect(Collectors.toSet());
         System.out.println(set);
+        System.out.println("--------------------------");
+        /*
+         * 自定义的集合类型
+         */
+        HashSet<String> hashSet = users.stream()
+                .map(User::getName)
+                .collect(Collectors.toCollection(HashSet::new));
+        System.out.println(hashSet);
     }
 }
