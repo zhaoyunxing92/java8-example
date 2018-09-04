@@ -8,6 +8,7 @@ import com.sunny.jdk8.lambda.User;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -105,5 +106,21 @@ public class StreamApiTest2 {
                 .reduce(Integer::sum);
         System.out.println(sumAge.get());
 
+    }
+
+    /**
+     * 收集 collect 流转为其他形式
+     */
+    @Test
+    public void test7() {
+        List<String> list = users.stream()
+                .map(User::getName)
+                .collect(Collectors.toList());
+        System.out.println(list);
+        System.out.println("--------------------------");
+        Set<String> set = users.stream()
+                .map(User::getName)
+                .collect(Collectors.toSet());
+        System.out.println(set);
     }
 }
