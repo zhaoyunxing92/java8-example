@@ -130,5 +130,44 @@ public class StreamApiTest2 {
                 .map(User::getName)
                 .collect(Collectors.toCollection(HashSet::new));
         System.out.println(hashSet);
+        System.out.println("--------------------------");
+
+        //求和
+        Long collect = users.stream()
+                .collect(Collectors.counting());
+        System.out.println(collect);
+
+        //平均值
+        Double avg = users.stream()
+                .collect(Collectors.averagingDouble(User::getAge));
+        System.out.println(avg);
+
+        //求合
+        Integer sum = users.stream()
+                .collect(Collectors.summingInt(User::getAge));
+        System.out.println(sum);
+
+        //最大值
+        Optional<User> op = users.stream()
+                .collect(Collectors.maxBy(Comparator.comparingInt(User::getAge)));
+        System.out.println(op.get());
+
+        //分组
+        Map<Status, List<User>> groupMap = users.stream()
+                .collect(Collectors.groupingBy(User::getStatus));
+        System.out.println(groupMap);
+
+        //多级分组
+        Map<Status, Map<String, List<User>>> collect1 = users.stream()
+                .collect(Collectors.groupingBy(User::getStatus, Collectors.groupingBy((u) -> {
+                    if (u.getAge() <= 20) {
+                        return "少年";
+                    } else if (u.getAge() <= 30) {
+                        return "青年";
+                    } else {
+                        return "老年";
+                    }
+                })));
+        System.out.println(collect1);
     }
 }
