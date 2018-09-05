@@ -180,4 +180,30 @@ public class StreamApiTest2 {
                 .collect(Collectors.partitioningBy((u) -> u.getAge() > 20));
         System.out.println(listMap);
     }
+
+    /**
+     * 汇总 summarizingDouble、summarizingInt、summarizingLong
+     */
+    @Test
+    public void test9() {
+        DoubleSummaryStatistics dss = users.stream()
+                .collect(Collectors.summarizingDouble(User::getAge));
+        System.out.println(dss.getMax());
+        System.out.println(dss.getAverage());
+        System.out.println(dss.getMin());
+        System.out.println(dss.getSum());
+        System.out.println(dss.getCount());
+    }
+
+    /**
+     * 字符串合并  joining
+     */
+    @Test
+    public void test10() {
+        String str = users.stream()
+                .map(User::getName)
+                .collect(Collectors.joining());
+        System.out.println(str);
+
+    }
 }

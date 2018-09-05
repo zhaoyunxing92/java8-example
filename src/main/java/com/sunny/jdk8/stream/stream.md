@@ -220,6 +220,31 @@
         System.out.println(listMap);
     }
 ```
+* 汇总 summarizingDouble、summarizingInt、summarizingLong
+```java
+    @Test
+    public void test9() {
+        DoubleSummaryStatistics dss = users.stream()
+                .collect(Collectors.summarizingDouble(User::getAge));
+        System.out.println(dss.getMax());
+        System.out.println(dss.getAverage());
+        System.out.println(dss.getMin());
+        System.out.println(dss.getSum());
+        System.out.println(dss.getCount());
+    }
+```
+* joining 字符串合并
+```java
+    @Test
+    public void test10() {
+        String str = users.stream()
+                .map(User::getName)
+                .collect(Collectors.joining());
+        System.out.println(str);
+
+    }
+```
+
 ## 映射
 * map 接收一个函数，该函数会映射到每个元素上
 ```java
