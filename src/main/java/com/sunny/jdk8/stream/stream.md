@@ -77,6 +77,101 @@
     
         }
 ```
+* max、min、count
+```java
+    // count
+    @Test
+    public void test4() {
+        long count = users.stream()
+                .count();
+        System.out.println(count);
+    }
+    // max、min
+     @Test
+    public void test5() {
+            Optional<User> op = users.stream()
+                    .max(Comparator.comparingInt(User::getAge));
+            System.out.println(op.get());
+    
+            Optional<User> op2 = users.stream()
+                    .min(Comparator.comparingInt(User::getAge));
+            System.out.println(op2.get());
+    }
+
+```
+* reduce 归约 一个值反复结合，合并成一个
+```java
+    @Test
+    public void test6() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Integer reduce = list.stream().reduce(0, (x, y) -> x + y);
+        System.out.println(reduce);
+        System.out.println("------------------------------");
+        //获取年龄合
+        Optional<Integer> sumAge = users.stream()
+                .map(User::getAge)
+                .reduce(Integer::sum);
+        System.out.println(sumAge.get());
+
+    }
+```
+* collect 收集，流转为其他形式
+```java
+    @Test
+    public void test7() {
+        List<String> list = users.stream()
+                .map(User::getName)
+                .collect(Collectors.toList());
+        System.out.println(list);
+        System.out.println("--------------------------");
+        Set<String> set = users.stream()
+                .map(User::getName)
+                .collect(Collectors.toSet());
+        System.out.println(set);
+        System.out.println("--------------------------");
+        /*
+         * 自定义的集合类型
+         */
+        HashSet<String> hashSet = users.stream()
+                .map(User::getName)
+                .collect(Collectors.toCollection(HashSet::new));
+        System.out.println(hashSet);
+    }
+```
+* allMatch、anyMatch、noneMatch
+```java
+    @Test
+    public void test1() {
+        //是否匹配全部
+        boolean b1 = users.stream()
+                .allMatch(e -> e.getStatus().equals(Status.QUIT));
+        System.out.println(b1);
+        //是否匹配一个
+        boolean b2 = users.stream()
+                .anyMatch(e -> e.getStatus().equals(Status.QUIT));
+        System.out.println(b2);
+        //没有匹配一个
+        boolean b3 = users.stream()
+                .noneMatch(e -> e.getStatus().equals(Status.QUIT));
+        System.out.println(b3);
+    }
+```
+* findFirst、findAny
+```java
+    @Test
+    public void test2() {
+        //获取第一个元素
+        Optional<User> op = users.stream()
+                .sorted((u1, u2) -> -Integer.compare(u1.getAge(), u2.getAge()))
+                .findFirst();
+        System.out.println(op.get());
+        //获取任意一个匹配的
+        Optional<User> op = users.stream()
+                        .filter(u -> u.getStatus().equals(Status.QUIT))
+                        .findAny();
+                System.out.println(op.get());
+    }
+```
 ## 映射
 * map 接收一个函数，该函数会映射到每个元素上
 ```java
