@@ -211,6 +211,15 @@
                 System.out.println(op.get());
     }
 ```
+* 分区 partitioningBy
+```java
+    @Test
+    public void test8() {
+        Map<Boolean, List<User>> listMap = users.stream()
+                .collect(Collectors.partitioningBy((u) -> u.getAge() > 20));
+        System.out.println(listMap);
+    }
+```
 ## 映射
 * map 接收一个函数，该函数会映射到每个元素上
 ```java

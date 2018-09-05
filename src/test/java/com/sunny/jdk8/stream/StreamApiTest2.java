@@ -170,4 +170,14 @@ public class StreamApiTest2 {
                 })));
         System.out.println(collect1);
     }
+
+    /**
+     * 分区 partitioningBy
+     */
+    @Test
+    public void test8() {
+        Map<Boolean, List<User>> listMap = users.stream()
+                .collect(Collectors.partitioningBy((u) -> u.getAge() > 20));
+        System.out.println(listMap);
+    }
 }

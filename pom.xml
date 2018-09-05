@@ -37,6 +37,11 @@
             <scope>test</scope>
             <version>${junit.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.tencentcloudapi</groupId>
+            <artifactId>tencentcloud-sdk-java</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
 
 
