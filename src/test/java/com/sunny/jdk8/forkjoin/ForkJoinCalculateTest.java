@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
+import java.util.stream.LongStream;
 
 import static org.junit.Assert.*;
 
@@ -42,5 +43,19 @@ public class ForkJoinCalculateTest {
         System.out.println(sum);
         Instant end = Instant.now();
         System.out.println("耗时：" + Duration.between(start, end).toMillis());//36394
+    }
+
+    /**
+     * 使用并行流处理
+     */
+    @Test
+    public void test3() {
+        Instant start = Instant.now();
+        long sum = LongStream.rangeClosed(0, 50000000000L)
+                .parallel()
+                .reduce(0, Long::sum);
+        System.out.println(sum);
+        Instant end = Instant.now();
+        System.out.println("耗时：" + Duration.between(start, end).toMillis());//15782
     }
 }
