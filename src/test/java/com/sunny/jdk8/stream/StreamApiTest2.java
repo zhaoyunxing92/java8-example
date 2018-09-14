@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.stream;
 
@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.stream.StreamApiTest
- * @date: 2018-08-24 14:03
+ * @date: 2016-08-24 14:03
  * @des: 终止操作
  */
 public class StreamApiTest2 {

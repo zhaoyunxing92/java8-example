@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.lambda;
 
@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.lambda.LambdaExampleTest2
- * @date: 2018-08-09 17:08
+ * @date: 2016-08-09 17:08
  * @des: 四大内置函数接口
  * * Consumer<T> 消费型接口 (有参无返回值)
  * * Supplier<T> 供给型接口（无参有返回值）

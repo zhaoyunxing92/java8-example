@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.forkjoin.ForkJoinCalculateTest
- * @date: 2018-09-06 16:47
+ * @date: 2016-09-06 16:47
  * @des:
  */
 public class ForkJoinCalculateTest {

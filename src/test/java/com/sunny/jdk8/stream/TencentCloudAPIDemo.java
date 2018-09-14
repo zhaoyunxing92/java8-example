@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.stream;
 
@@ -29,7 +29,7 @@ import java.util.TreeMap;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.stream.TencentCloudAPIDemo
- * @date: 2018-09-04 12:31
+ * @date: 2016-09-04 12:31
  * @des:
  */
 public class TencentCloudAPIDemo {

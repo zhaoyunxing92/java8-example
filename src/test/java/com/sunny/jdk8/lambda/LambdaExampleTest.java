@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.lambda.LambdaExampleTest
- * @date: 2018-08-06 13:22
+ * @date: 2016-08-06 13:22
  * @des: lambda的演化过程
  */
 public class LambdaExampleTest {

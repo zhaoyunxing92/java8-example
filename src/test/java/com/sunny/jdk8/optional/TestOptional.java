@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.optional;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.optional.TestOptional
- * @date: 2018-09-07 14:51
+ * @date: 2016-09-07 14:51
  * @des: Optional容器
  */
 public class TestOptional {

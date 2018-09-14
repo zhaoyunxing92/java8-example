@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.lambda;
 
@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.lambda.LambdaExampleTest2
- * @date: 2018-08-09 17:08
+ * @date: 2016-08-09 17:08
  * @des: 方法引用：若Lambda体的内容方法已经实现了，可以使用方法引用
  * 方法参数类型和返回类型跟函数方法必须相同
  * 主要三种语法格式：

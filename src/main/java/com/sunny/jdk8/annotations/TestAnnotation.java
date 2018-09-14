@@ -1,12 +1,12 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.annotations;
 
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.annotations.TestAnnotation
- * @date: 2018-09-14 13:50
+ * @date: 2016-09-14 13:50
  * @des:
  */
 public class TestAnnotation {

@@ -1,12 +1,12 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.lambda;
 
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.lambda.Filter
- * @date: 2018-08-06 16:31
+ * @date: 2016-08-06 16:31
  * @des:
  */
 @FunctionalInterface

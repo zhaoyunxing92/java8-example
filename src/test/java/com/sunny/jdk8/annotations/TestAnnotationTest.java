@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.annotations.TestAnnotationTest
- * @date: 2018-09-14 14:26
+ * @date: 2016-09-14 14:26
  * @des:
  */
 public class TestAnnotationTest {

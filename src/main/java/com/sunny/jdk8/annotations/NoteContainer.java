@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.annotations;
 
@@ -12,7 +12,7 @@ import static java.lang.annotation.ElementType.*;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.annotations.NoteContatiner
- * @date: 2018-09-14 14:07
+ * @date: 2016-09-14 14:07
  * @des: 容器注解类
  */
 @Retention(RetentionPolicy.RUNTIME)

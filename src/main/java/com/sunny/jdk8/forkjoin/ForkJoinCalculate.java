@@ -1,5 +1,5 @@
 /**
- * Copyright(C) 2018 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
+ * Copyright(C) 2016 Hangzhou zhaoyunxing92 Technology Co., Ltd. All rights reserved.
  */
 package com.sunny.jdk8.forkjoin;
 
@@ -8,7 +8,7 @@ import java.util.concurrent.RecursiveTask;
 /**
  * @author zhaoyunxing92
  * @class: com.sunny.jdk8.forkjoin.ForkJoinCalculate
- * @date: 2018-09-06 13:49
+ * @date: 2016-09-06 13:49
  * @des: forkjoin
  */
 public class ForkJoinCalculate extends RecursiveTask<Long> {
