@@ -5,13 +5,12 @@ package com.sunny.jdk8.interfaces;
 
 /**
  * @author zhaoyunxing92
- * @class: com.sunny.jdk8.interfaces.Myfun
- * @date: 2018-09-13 10:20
+ * @class: com.sunny.jdk8.interfaces.MyClass
+ * @date: 2018-09-14 10:29
  * @des:
  */
-public interface Myfun {
-
-    default String getName() {
-        return "赵云";
+public class MyClass {
+    public String getName() {
+        return "关羽";
     }
 }

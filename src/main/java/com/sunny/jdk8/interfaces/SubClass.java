@@ -5,13 +5,9 @@ package com.sunny.jdk8.interfaces;
 
 /**
  * @author zhaoyunxing92
- * @class: com.sunny.jdk8.interfaces.Myfun
- * @date: 2018-09-13 10:20
+ * @class: com.sunny.jdk8.interfaces.SubClass
+ * @date: 2018-09-14 10:30
  * @des:
  */
-public interface Myfun {
-
-    default String getName() {
-        return "赵云";
-    }
+public class SubClass extends MyClass implements Myfun {
 }
