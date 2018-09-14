@@ -5,17 +5,12 @@ package com.sunny.jdk8.interfaces;
 
 /**
  * @author zhaoyunxing92
- * @class: com.sunny.jdk8.interfaces.Myfun
- * @date: 2018-09-13 10:20
+ * @class: com.sunny.jdk8.interfaces.MyInterface
+ * @date: 2018-09-14 11:01
  * @des:
  */
-public interface Myfun {
-
+public interface MyInterface {
     default String getName() {
-        return "赵云";
-    }
-
-    static void say() {
-        System.out.println("接口中的静态方法");
+        return "鲁肃";
     }
 }
